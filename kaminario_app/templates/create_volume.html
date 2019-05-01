@@ -1,0 +1,11 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+
+<h2>The volume "{{volume_name}}" has been created with a size of {{volume_size_gb}}GB and is aligned to the {{volume_group}} group</h2>
+
+<h4>Python Requests module call:</h4>
+
+<p> {{request_command}}</p>
+
+{% endblock %}

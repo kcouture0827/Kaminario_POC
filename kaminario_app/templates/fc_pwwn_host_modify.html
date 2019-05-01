@@ -1,0 +1,17 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+
+<p>The FC PWWN: {{pwwn}} </p>
+<p>pwwn_get_request: {{pwwn_get_request}}</p>
+<p>pwwn_json_example: {{pwwn_json_example}}</p>
+<p>pwwn_id: {{pwwn_id}}</p>
+<p>associated_host_get_request: {{associated_host_get_request}}</p>
+<p>associated_host_json_example: {{associated_host_json_example}}</p>
+<p>associated_host_id: {{associated_host_id}}</p>
+
+<h4>Python Requests module call:</h4>
+
+<p>{{request_command}}</p>
+
+{% endblock %}
