@@ -51,24 +51,6 @@
 </form>
 </div>
 
-<!-- come back and do this if extra time is available
-
-<div class="container top-buffer">
-<h4>Modify the Volume Group of a Volume</h4>
-<form method="POST" action="/modify_volume_group">
-  <div class="form-group">
-    <label>Volume Name:</label>
-    <input type="text" name="volume_group_name" placeholder="Enter Volume Name">
-  </div>
-  <div class="form-group">
-    <label>Volume Group Name</label>
-    <input type="text" name="volume_group_name" placeholder="Enter Volume Group Name">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
--->
-
 <div class="container top-buffer">
 <h4>Create Host Group</h4>
 <form method="POST" action="/create_host_group">
@@ -135,6 +117,28 @@
   <div class="form-group">
     <label>New Associated Host Name:</label>
     <input type="text" name="associated_host" placeholder="Enter New Host Name" required="true">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+<div class="container top-buffer">
+<h4>Map Volume to Host</h4>
+<form method="POST" action="/map_volume_to_host">
+  <div class="form-group">
+    <label>Volume:</label>
+    <input type="text" name="volume_name" placeholder="Enter Volume Name" required="true">
+  </div>
+  <div class="form-group">
+    <label>Host:</label>
+    <input type="text" name="host_name" placeholder="Enter Host Name" required="true">
+  </div>
+  <div class="form-group">
+    <label>Unique Target:</label>
+    <select class="form-control-inline" name="unique_target">
+            <option>True</option>
+            <option>False</option>
+    </select>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

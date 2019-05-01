@@ -1,0 +1,16 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='style.css')}}">
+{% endblock %}
+
+{% block content %}
+<h2>The volume "{{volume_name}}" has been mapped to  host "{{host_name}}" </h2><br><br>
+<h4>volume get request: {{volume_get_request}}</h4><br><br>
+<h4>volume assumed json response: {{volume_assumed_json_response}}</h4><br><br>
+<h4>host get request: {{host_get_request}}</h4><br><br>
+<h4>host assumed json response: {{host_assumed_json_response}}</h4><br><br>
+<h4>request to map volume with Host: {{request_command}}</h4><br><br>
+<h4>assumed successful json response: {{assumed_successful_json_response}}</h4><br><br>
+{% endblock %}
