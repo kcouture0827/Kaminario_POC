@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<h2>The volume "{{volume_name}}" has been created with a size of {{volume_size_gb}}GB and is aligned to the {{volume_group}} group</h2>
-
-<h4>Python Requests module call:</h4>
-
-<p> {{request_command}}</p>
+<h2>The volume "{{volume_name}}" has been created with a size of {{volume_size_gb}}GB and is aligned to the {{volume_group}} group</h2><br><br>
+<h4>request to create volume:</h4>
+<h4>{{request_command}}</h4><br><br>
+<h4>assumed successful json response:</h4>
+<h4>{{assumed_successful_json_response}}</h4><br><br>
 
 {% endblock %}

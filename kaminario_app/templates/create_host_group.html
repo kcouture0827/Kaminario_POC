@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<h2>The host group"{{host_group_name}}" has been created</h2>
-
-<h4>Python Requests module call:</h4>
-
-<p>{{request_command}}</p>
+<h2>The host group "{{host_group_name}}" has been created</h2><br><br>
+<h4>request to create host group:</h4>
+<h4>{{request_command}}</h4><br><br>
+<h4>assumed successful json response:</h4>
+<h4>{{assumed_successful_json_response}}</h4><br><br>
 
 {% endblock %}

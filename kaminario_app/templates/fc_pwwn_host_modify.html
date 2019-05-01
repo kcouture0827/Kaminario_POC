@@ -1,17 +1,16 @@
 {% extends "bootstrap/base.html" %}
 
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='style.css')}}">
+{% endblock %}
+
 {% block content %}
-
-<p>The FC PWWN: {{pwwn}} </p>
-<p>pwwn_get_request: {{pwwn_get_request}}</p>
-<p>pwwn_json_example: {{pwwn_json_example}}</p>
-<p>pwwn_id: {{pwwn_id}}</p>
-<p>associated_host_get_request: {{associated_host_get_request}}</p>
-<p>associated_host_json_example: {{associated_host_json_example}}</p>
-<p>associated_host_id: {{associated_host_id}}</p>
-
-<h4>Python Requests module call:</h4>
-
-<p>{{request_command}}</p>
-
+<h2>The FC PWWN "{{pwwn}}" has been associated to new host "{{associated_host}}" </h2><br><br>
+<h4>pwwn get request: {{pwwn_get_request}}</h4><br><br>
+<h4>pwwn assumed json response: {{pwwn_assumed_json_response}}</h4><br><br>
+<h4>associated host get request: {{associated_host_get_request}}</h4><br><br>
+<h4>associated host assumed json response: {{associated_host_assumed_json_response}}</h4><br><br>
+<h4>request to associate PWWN with new Host: {{request_command}}</h4><br><br>
+<h4>assumed successful json response: {{assumed_successful_json_response}}</h4><br><br>
 {% endblock %}
