@@ -2,9 +2,15 @@
 
 {% block content %}
 <div class="alert alert-success text-center">
-    <h4>The host "{{host_name}}" has been created with a type of {{host_type}} and is aligned to the "{{host_group}}"  host group</h4>
+    <h4>The host "{{host_name}}" has been created with a type of "{{host_type}}" and is aligned to the "{{host_group}}"  host group</h4>
 </div>
 <div class="container-fluid top-buffer">
+    {% if host_group_get_request != ""%}
+    <h4>host group get request:</h4>
+    <p>{{host_group_get_request}}</p><br>
+    <h4>assumed host group json response</h4>
+    <p>{{host_group_assumed_json_response}}</p><br>
+    {% endif %}
     <h4>create host request:</h4>
     <p>{{request_command}}</p><br>
     <h4>assumed successful json response:</h4>

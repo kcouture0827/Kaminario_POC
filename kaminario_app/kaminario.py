@@ -60,10 +60,46 @@ def create_volume():
         volume_size_gb = request.form['volume_size']
         volume_size_kb = int(volume_size_gb)*1000000
         volume_group = request.form['volume_group']
+        volume_group_get_request = "request.get(https://k2_ip/api/v2/volume_groups?name=" + volume_group + ", auth=('admin', 'admin'))"
+        volume_group_assumed_json_response = '''
+        {{
+            "capacity_policy": null,
+            "capacity_state": "ok",
+            "creation_time": 1470296567.234391,
+            "description": null,
+            "id": 4,
+            "is_dedup": false,
+            "is_default": false,
+            "iscsi_tgt_converted_name": "test.anmir",
+            "last_restored_from": null,
+            "last_restored_time": null,
+            "last_snapshot_creation_time": 1507446023,
+            "logical_capacity": 0.0,
+            "mapped_hosts_count": 1,
+            "name": "{volume_group}",
+            "quota": null,
+            "replication_peer_volume_group": null,
+            "replication_rpo_history": null,
+            "replication_session": null,
+            "snapshots_count": 3,
+            "snapshots_logical_capacity": 0,
+            "snapshots_overhead_state": "ok",
+            "views_count": 0,
+            "volumes_count": 8,
+            "volumes_logical_capacity": 0,
+            "volumes_provisioned_capacity": 21474836480
+        }}
+        '''.format(volume_group=volume_group)
+        volume_group_data = json.loads(volume_group_assumed_json_response)
+        volume_group_id = str(volume_group_data['id'])
         vmware_enabled = request.form['vmware_support']
+        if vmware_enabled == "True":
+            vmware_enabled_bool = True
+        elif vmware_enabled == "False":
+            vmware_enabled_bool = False
         description = request.form['volume_description']
         api_url = "https://k2_ip/api/v2/volumes"
-        payload = {'name': volume_name, 'size': volume_size_kb, 'volume_group': volume_group, 'vmware_enabled': vmware_enabled, 'description': description}
+        payload = {'name': volume_name, 'size': volume_size_kb, 'volume_group': { "ref": "/volume_groups/" + volume_group_id }, 'vmware_enabled': vmware_enabled, 'description': description}
         request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin')))"
         assumed_successful_json_response = '''
         {{
@@ -96,15 +132,15 @@ def create_volume():
                  "size": {volume_size_kb},
                  "snapshots_logical_capacity": 0,
                  "stream_avg_compressed_size_in_bytes": 763
-                 "vmware_support": true,
+                 "vmware_support": {vmware_enabled_bool},
                  "volume_group": {{
-                 "ref": "/volume_groups/10"
+                 "ref": "/volume_groups/{volume_group_id}"
                  }}
                  }}
         }}
-        '''.format(volume_name=volume_name, volume_size_kb=volume_size_kb)
+        '''.format(volume_name=volume_name, volume_size_kb=volume_size_kb, volume_group_id=volume_group_id, vmware_enabled_bool=vmware_enabled_bool)
 
-        return render_template('create_volume.html', volume_name=volume_name, volume_size_gb=volume_size_gb, volume_group=volume_group, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)
+        return render_template('create_volume.html', volume_name=volume_name, volume_size_gb=volume_size_gb, volume_group=volume_group, request_command=request_command, volume_group_get_request=volume_group_get_request, volume_group_assumed_json_response=volume_group_assumed_json_response, assumed_successful_json_response=assumed_successful_json_response)
 
 
 @app.route('/create_host_group', methods=['POST'])
@@ -145,24 +181,57 @@ def create_host():
         host_name = request.form['host_name']
         host_type = request.form['host_type']
         host_group = request.form['host_group']
-        api_url = "https://k2_ip/api/v2/hosts"
-        payload = {'name': host_name, 'type': host_type, 'host_group': host_group}
-        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
-        assumed_successful_json_response = '''
+        host_group_assumed_json_response = '''
         {{
-             "host_group": {{
-                "ref": "/host_groups/16"
-        }},
-        "id": 7,
-        "is_part_of_group": true,
-        "name": "{host_name}",
-        "type": "{host_type}",
-        "views_count": 0,
-        "volumes_count": 10
+            "hits": [
+            {{
+            "allow_different_host_types": false,
+            "description": null,
+            "hosts_count": 2,
+            "id": 16,
+            "name": "{host_group}",
+            "views_count": 0,
+            "volumes_count": 3
+            }}
+            ]
         }}
-        '''.format(host_type=host_type, host_name=host_name)
+        '''.format(host_group=host_group)
+        host_group_data = json.loads(host_group_assumed_json_response)
+        host_group_id = str(host_group_data['hits'][0]['id'])
+        api_url = "https://k2_ip/api/v2/hosts"
+        if host_group == "":
+            host_group_get_request = ""
+            payload = {'name': host_name, 'type': host_type}
+            assumed_successful_json_response = '''
+                                {{
+                                "id": 7,
+                                "is_part_of_group": false,
+                                "name": "{host_name}",
+                                "type": "{host_type}",
+                                "views_count": 0,
+                                "volumes_count": 10
+                                }}
+                                '''.format(host_type=host_type, host_name=host_name)
+        else:
+            payload = {'name': host_name, 'type': host_type, 'host_group': {"ref": "/host_groups/" + host_group_id}}
+            host_group_get_request = "request.get(https://k2_ip/api/v2/host_groups?name=" + host_group + ", auth=('admin', 'admin'))"
+            assumed_successful_json_response = '''
+                    {{
+                         "host_group": {{
+                            "ref": "/host_groups/16"
+                    }},
+                    "id": 7,
+                    "is_part_of_group": true,
+                    "name": "{host_name}",
+                    "type": "{host_type}",
+                    "views_count": 0,
+                    "volumes_count": 10
+                    }}
+                    '''.format(host_type=host_type, host_name=host_name)
+        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
 
-        return render_template('create_host.html', host_name=host_name, host_type=host_type, host_group=host_group, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)
+
+        return render_template('create_host.html', host_name=host_name, host_type=host_type, host_group=host_group, host_group_get_request=host_group_get_request, host_group_assumed_json_response=host_group_assumed_json_response, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)
 
 
 @app.route('/fc_pwwn_lookup', methods=['POST'])
