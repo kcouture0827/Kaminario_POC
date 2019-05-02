@@ -300,7 +300,7 @@ def map_volume_to_host():
         elif unique_target == "False":
             unique_target_bool = False
         api_url = "https://k2_ip/api/v2/mappings"
-        payload = {"host": {"ref": "/hosts/" + host_id}, "volume": {"ref": "/volumes/" + volume_id, "unique_target": unique_target_bool}}
+        payload = {"host": {"ref": "/hosts/" + host_id}, "volume": {"ref": "/volumes/" + volume_id}, "unique_target": unique_target_bool}
         request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
         assumed_successful_json_response = '''
                 {{

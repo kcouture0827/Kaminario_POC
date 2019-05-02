@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f76c0615-2aeb-4b20-acc2-75c0da3a63e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kaminario_app/kaminario.py" beforeDir="false" afterPath="$PROJECT_DIR$/kaminario_app/kaminario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kaminario_app/templates/create_host.html" beforeDir="false" afterPath="$PROJECT_DIR$/kaminario_app/templates/create_host.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kaminario_app/templates/create_host_group.html" beforeDir="false" afterPath="$PROJECT_DIR$/kaminario_app/templates/create_host_group.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kaminario_app/templates/create_volume.html" beforeDir="false" afterPath="$PROJECT_DIR$/kaminario_app/templates/create_volume.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kaminario_app/templates/create_volume_group.html" beforeDir="false" afterPath="$PROJECT_DIR$/kaminario_app/templates/create_volume_group.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kaminario_app/templates/fc_pwwn_host_modify.html" beforeDir="false" afterPath="$PROJECT_DIR$/kaminario_app/templates/fc_pwwn_host_modify.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kaminario_app/templates/fc_pwwn_lookup.html" beforeDir="false" afterPath="$PROJECT_DIR$/kaminario_app/templates/fc_pwwn_lookup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kaminario_app/templates/map_volume_to_host.html" beforeDir="false" afterPath="$PROJECT_DIR$/kaminario_app/templates/map_volume_to_host.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,11 +21,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kaminario_app/kaminario.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="300" column="38" lean-forward="true" selection-start-line="300" selection-start-column="38" selection-end-line="300" selection-end-column="38" />
+            <state relative-caret-position="131">
+              <caret line="295" column="38" lean-forward="true" selection-start-line="295" selection-start-column="38" selection-end-line="295" selection-end-column="38" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -42,28 +34,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kaminario_app/templates/create_volume.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kaminario_app/templates/fc_pwwn_host_modify.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kaminario_app/templates/map_volume_to_host.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="357">
+              <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -71,35 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kaminario_app/templates/fc_pwwn_lookup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kaminario_app/templates/create_volume_group.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-end-line="4" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kaminario_app/templates/create_host.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kaminario_app/templates/create_host_group.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+            <state relative-caret-position="119">
+              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -123,11 +70,11 @@
         <option value="$PROJECT_DIR$/static/index.html" />
         <option value="$PROJECT_DIR$/kaminario_app/static/style.css" />
         <option value="$PROJECT_DIR$/kaminario_app/templates/index.html" />
+        <option value="$PROJECT_DIR$/kaminario_app/kaminario.py" />
+        <option value="$PROJECT_DIR$/kaminario_app/templates/create_host.html" />
         <option value="$PROJECT_DIR$/kaminario_app/templates/create_host_group.html" />
         <option value="$PROJECT_DIR$/kaminario_app/templates/create_volume.html" />
         <option value="$PROJECT_DIR$/kaminario_app/templates/create_volume_group.html" />
-        <option value="$PROJECT_DIR$/kaminario_app/templates/create_host.html" />
-        <option value="$PROJECT_DIR$/kaminario_app/kaminario.py" />
         <option value="$PROJECT_DIR$/kaminario_app/templates/fc_pwwn_lookup.html" />
         <option value="$PROJECT_DIR$/kaminario_app/templates/fc_pwwn_host_modify.html" />
         <option value="$PROJECT_DIR$/kaminario_app/templates/map_volume_to_host.html" />
@@ -135,8 +82,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="737" />
-    <option name="width" value="1190" />
+    <option name="x" value="754" />
+    <option name="width" value="1173" />
     <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -257,19 +204,33 @@
       <option name="project" value="LOCAL" />
       <updated>1556746123691</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="making the jinja templates look nicer">
+      <created>1556758150040</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556758150040</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fixing verbiage">
+      <created>1556758564880</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556758564880</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="737" y="0" width="1190" height="1057" extended-state="0" />
+    <frame x="754" y="0" width="1173" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15972222" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16211453" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22077923" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22077923" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -285,7 +246,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="multiple updates made" />
-    <option name="LAST_COMMIT_MESSAGE" value="multiple updates made" />
+    <MESSAGE value="making the jinja templates look nicer" />
+    <MESSAGE value="fixing verbiage" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing verbiage" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/kaminario_app/static/style.css">
@@ -302,62 +265,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kaminario_app/kaminario.py">
+    <entry file="file://$PROJECT_DIR$/kaminario_app/templates/create_host.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="300" column="38" lean-forward="true" selection-start-line="300" selection-start-column="38" selection-end-line="300" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kaminario_app/templates/create_host_group.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kaminario_app/templates/create_host.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kaminario_app/templates/create_volume_group.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-end-line="4" selection-end-column="45" />
+        <state relative-caret-position="119">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kaminario_app/templates/create_volume.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        <state relative-caret-position="136">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kaminario_app/templates/fc_pwwn_lookup.html">
+    <entry file="file://$PROJECT_DIR$/kaminario_app/templates/create_volume_group.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" selection-end-column="45" />
+        <state relative-caret-position="136">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kaminario_app/templates/fc_pwwn_host_modify.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="45" />
+        <state relative-caret-position="374">
+          <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kaminario_app/templates/fc_pwwn_lookup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kaminario_app/templates/map_volume_to_host.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="357">
+          <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kaminario_app/kaminario.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="295" column="38" lean-forward="true" selection-start-line="295" selection-start-column="38" selection-end-line="295" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
