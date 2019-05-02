@@ -1,14 +1,13 @@
 {% extends "bootstrap/base.html" %}
 
-{% block styles %}
-{{super()}}
-<link rel="stylesheet" href="{{url_for('.static', filename='style.css')}}">
-{% endblock %}
-
 {% block content %}
-
-<h2>The FC PWWN "{{pwwn}}" has been looked up</h2><br><br>
-<h4>request to lookup PWWN: {{request_command}}</h4><br><br>
-<h4>assumed successful json response: {{assumed_successful_json_response}}</h4><br><br>
+<div class="alert alert-success text-center">
+    <h4>The FC PWWN "{{pwwn}}" has been looked up</h4>
+</div>
+<br>
+<h4>request to lookup PWWN:</h4>
+<p>{{request_command}}</p><br>
+<h4>assumed successful json response:</h4>
+<p>{{assumed_successful_json_response}}</p>
 
 {% endblock %}

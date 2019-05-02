@@ -2,10 +2,13 @@
 
 {% block content %}
 
-<h2>The volume "{{volume_name}}" has been created with a size of {{volume_size_gb}}GB and is aligned to the {{volume_group}} group</h2><br><br>
+<div class="alert alert-success text-center">
+    <h4>The volume "{{volume_name}}" has been created with a size of {{volume_size_gb}}GB and is aligned to the "{{volume_group}}" volume group</h4>
+</div>
+<br>
 <h4>request to create volume:</h4>
-<h4>{{request_command}}</h4><br><br>
+<p>{{request_command}}</p><br>
 <h4>assumed successful json response:</h4>
-<h4>{{assumed_successful_json_response}}</h4><br><br>
+<p>{{assumed_successful_json_response}}</p><br><br>
 
 {% endblock %}
