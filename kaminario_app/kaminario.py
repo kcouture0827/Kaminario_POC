@@ -19,7 +19,7 @@ def create_volume_group():
         volume_group_name = request.form['volume_group_name']
         api_url = "k2_ip/api/v2/volume_groups"
         payload = {'name': volume_group_name}
-        request_command = "requests.post(https://" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin')))"
+        request_command = "requests.post(https://" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
         curl_command = "curl -s 'https://admin:admin@" + api_url + "' -X POST -H 'Content-type: application/json' -d '" + str(payload) + "'"
         print(curl_command)
         assumed_successful_json_response = '''
@@ -102,7 +102,7 @@ def create_volume():
         description = request.form['volume_description']
         api_url = "k2_ip/api/v2/volumes"
         payload = {'name': volume_name, 'size': volume_size_kb, 'volume_group': { "ref": "/volume_groups/" + volume_group_id }, 'vmware_enabled': vmware_enabled, 'description': description}
-        request_command = "requests.post(https://" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin')))"
+        request_command = "requests.post(https://" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
         curl_command = "curl -s 'https://admin:admin@" + api_url + "' -X POST -H 'Content-type: application/json' -d '" + str(payload) + "'"
         assumed_successful_json_response = '''
         {{
