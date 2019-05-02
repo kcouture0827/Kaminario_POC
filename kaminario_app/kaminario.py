@@ -19,7 +19,7 @@ def create_volume_group():
         volume_group_name = request.form['volume_group_name']
         api_url = "https://k2_ip/api/v2/volume_groups"
         payload = {'name': volume_group_name}
-        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin)))"
+        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin')))"
         assumed_successful_json_response = '''
         {{
              "capacity_policy": null,
@@ -48,7 +48,7 @@ def create_volume_group():
              "volumes_logical_capacity": 0,
              "volumes_provisioned_capacity": 21474836480
         }}
-            '''.format(volume_group_name=volume_group_name)
+        '''.format(volume_group_name=volume_group_name)
 
         return render_template('create_volume_group.html', volume_group_name=volume_group_name, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)
 
@@ -64,7 +64,7 @@ def create_volume():
         description = request.form['volume_description']
         api_url = "https://k2_ip/api/v2/volumes"
         payload = {'name': volume_name, 'size': volume_size_kb, 'volume_group': volume_group, 'vmware_enabled': vmware_enabled, 'description': description}
-        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin)))"
+        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin')))"
         assumed_successful_json_response = '''
         {{
              "hits": [
@@ -101,7 +101,7 @@ def create_volume():
                  "ref": "/volume_groups/10"
                  }}
                  }}
-             }}
+        }}
         '''.format(volume_name=volume_name, volume_size_kb=volume_size_kb)
 
         return render_template('create_volume.html', volume_name=volume_name, volume_size_gb=volume_size_gb, volume_group=volume_group, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)
@@ -120,7 +120,7 @@ def create_host_group():
             allow_different_host_types_bool = False
         api_url = "https://k2_ip/api/v2/host_groups"
         payload = {'name': host_group_name, 'connectivity_type': connectivity_type, 'description': host_group_description, 'allow_different_host_types': allow_different_host_types_bool}
-        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin))"
+        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
         assumed_successful_json_response = '''
         {{
             "hits": [
@@ -211,13 +211,13 @@ def fc_pwwn_host_modify():
         {{
             "host_group": {{
                 "ref": "/host_groups/16"
-            }},
-                "id": 7,
-                "is_part_of_group": true,
-                "name": "{associated_host}",
-                "type": "Windows",
-                "views_count": 0,
-                "volumes_count": 10
+                }},
+            "id": 7,
+            "is_part_of_group": true,
+            "name": "{associated_host}",
+            "type": "Windows",
+            "views_count": 0,
+            "volumes_count": 10
         }}
         '''.format(associated_host=associated_host)
         associated_host_data = json.loads(associated_host_assumed_json_response)
@@ -303,17 +303,17 @@ def map_volume_to_host():
         payload = {"host": {"ref": "/hosts/" + host_id}, "volume": {"ref": "/volumes/" + volume_id}, "unique_target": unique_target_bool}
         request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
         assumed_successful_json_response = '''
-                {{
-                 "host": {{
-                 "ref": "/hosts/{host_id}"
-                 }},
-                 "id": 1,
-                 "lun": 2,
-                 "unique_target": {unique_target_bool},
-                 "volume": {{
-                 "ref": "/volumes/{volume_id}"
-                 }}
-                 }}               
+        {{
+            "host": {{
+            "ref": "/hosts/{host_id}"
+            }},
+            "id": 1,
+            "lun": 2,
+            "unique_target": {unique_target_bool},
+            "volume": {{
+            "ref": "/volumes/{volume_id}"
+            }}
+        }}               
         '''.format(host_id=host_id, volume_id=volume_id, unique_target_bool=unique_target_bool)
 
         return render_template('map_volume_to_host.html', volume_name=volume_name, host_name=host_name, volume_get_request=volume_get_request, volume_assumed_json_response=volume_assumed_json_response, host_get_request=host_get_request, host_assumed_json_response=host_assumed_json_response, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)

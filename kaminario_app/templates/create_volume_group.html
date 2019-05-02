@@ -5,9 +5,10 @@
 <div class="alert alert-success text-center">
     <h4>The volume group "{{volume_group_name}}" has been created</h4>
 </div>
-<br>
-<h4>create volume group request:</h4>
-<p> {{request_command}}</p><br>
-<h4>assumed successful json response:</h4>
-<p>{{assumed_successful_json_response}}</p>
+<div class="container-fluid top-buffer">
+    <h4>create volume group request:</h4>
+    <p> {{request_command}}</p><br>
+    <h4>assumed successful json response:</h4>
+    <p>{{assumed_successful_json_response}}</p>
+</div>
 {% endblock %}

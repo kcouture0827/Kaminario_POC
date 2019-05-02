@@ -10,135 +10,173 @@
    <h1>Kaminario Controller</h1>
 </div>
 
-<div class="container top-buffer">
+<div class="container-fluid top-buffer">
 <h4>Create Volume Group</h4>
 <form method="POST" action="/create_volume_group">
-  <div class="form-group">
-    <label>Volume Group Name:</label>
-    <input type="text" name="volume_group_name" placeholder="Enter Volume Group Name" required="true">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Volume Group Name:</label>
+    <div class="col-sm-10">
+    <input class="form-control" type="text" name="volume_group_name" placeholder="Enter Volume Group Name" required="true">
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
 
-<div class="container top-buffer">
+<div class="container-fluid top-buffer">
 <h4>Create Volume</h4>
 <form method="POST" action="/create_volume">
-  <div class="form-group">
-    <label>Volume Name:</label>
-    <input type="text" name="volume_name" placeholder="Enter Volume Name" required="true">
-  </div>
-  <div class="form-group">
-    <label>Volume size (GB):</label>
-    <input type="text" name="volume_size" placeholder="Enter Volume size in GBs" required="true">
-  </div>
-  <div class="form-group">
-    <label>Volume Group:</label>
-    <input type="text" name="volume_group" placeholder="Enter Volume Group" required="true">
-  </div>
-  <div class="form-group">
-    <label>VMware Enabled:</label>
-    <select class="form-control-inline" name="vmware_support">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Volume Name:</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="text" name="volume_name" placeholder="Enter Volume Name" required="true">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Volume size (GB):</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="text" name="volume_size" placeholder="Enter Volume size in GBs" required="true">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Volume Group:</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="text" name="volume_group" placeholder="Enter Volume Group" required="true">
+      </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">VMware Enabled:</label>
+        <div class="col-sm-10">
+          <select class="form-control" name="vmware_support">
             <option>True</option>
             <option>False</option>
-    </select>
-  </div>
-   <div class="form-group">
-    <label>description:</label>
-    <textarea class="form-control" name="volume_description"></textarea>
-  </div>
+          </select>
+        </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Description:</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" name="volume_description"></textarea>
+      </div>
+    </div>
   <button type="submit" class="btn btn-primary">submit</button>
 </form>
 </div>
 
-<div class="container top-buffer">
+<div class="container-fluid top-buffer">
 <h4>Create Host Group</h4>
 <form method="POST" action="/create_host_group">
-  <div class="form-group">
-    <label>Host Group Name:</label>
-    <input type="text" name="host_group_name" placeholder="Enter Host Group Name" required="true">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Host Group Name:</label>
+    <div class="col-sm-10">
+    <input class="form-control" type="text" name="host_group_name" placeholder="Enter Host Group Name" required="true">
+    </div>
   </div>
-  <div class="form-group">
-    <label>Connectivity Type:</label>
-    <input type="text" name="connectivity_type" placeholder="Enter Connectivity Type">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Connectivity Type:</label>
+    <div class="col-sm-10">
+    <input class="form-control" type="text" name="connectivity_type" placeholder="Enter Connectivity Type">
+    </div>
   </div>
-  <div class="form-group">
-    <label>description:</label>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">description:</label>
+    <div class="col-sm-10">
     <textarea class="form-control" name="host_group_description"></textarea>
+    </div>
   </div>
-  <div class="form-group">
-    <label>Allow Different Host Types:</label>
-    <select class="form-control-inline" name="allow_different_host_types">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Allow Different Host Types:</label>
+    <div class="col-sm-10">
+    <select class="form-control" name="allow_different_host_types">
             <option>True</option>
             <option>False</option>
     </select>
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
 
-<div class="container top-buffer">
+<div class="container-fluid top-buffer">
 <h4>Create Host</h4>
 <form method="POST" action="/create_host">
-  <div class="form-group">
-    <label>Host Name:</label>
-    <input type="text" name="host_name" placeholder="Enter Host Name" required="true">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Host Name:</label>
+    <div class="col-sm-10">
+    <input class="form-control" type="text" name="host_name" placeholder="Enter Host Name" required="true">
+    </div>
   </div>
-  <div class="form-group">
-    <label>Host Type:</label>
-    <input type="text" name="host_type" placeholder="Enter Host Type" required="true">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Host Type:</label>
+    <div class="col-sm-10">
+    <input class="form-control" type="text" name="host_type" placeholder="Enter Host Type" required="true">
+    </div>
   </div>
-<div class="form-group">
-    <label>Host Group:</label>
-    <input type="text" name="host_group" placeholder="Enter Host Group">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Host Group:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" name="host_group" placeholder="Enter Host Group">
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
 
-<div class="container top-buffer">
+<div class="container-fluid top-buffer">
 <h4>FC PWWN Lookup</h4>
 <form method="POST" action="/fc_pwwn_lookup">
-  <div class="form-group">
-    <label>PWWN:</label>
-    <input type="text" name="pwwn" placeholder="Enter PWWN" required="true">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">PWWN:</label>
+    <div class="col-sm-10">
+    <input class="form-control" type="text" name="pwwn" placeholder="Enter PWWN" required="true">
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
 
-<div class="container top-buffer">
+<div class="container-fluid top-buffer">
 <h4>Modify FC PWWN Host Association</h4>
 <form method="POST" action="/fc_pwwn_host_modify">
-  <div class="form-group">
-    <label>PWWN:</label>
-    <input type="text" name="pwwn" placeholder="Enter PWWN" required="true">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">PWWN:</label>
+    <div class="col-sm-10">
+    <input class="form-control" type="text" name="pwwn" placeholder="Enter PWWN" required="true">
+    </div>
   </div>
-  <div class="form-group">
-    <label>New Associated Host Name:</label>
-    <input type="text" name="associated_host" placeholder="Enter New Host Name" required="true">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">New Host Name:</label>
+    <div class="col-sm-10">
+    <input class="form-control" type="text" name="associated_host" placeholder="Enter New Host Name" required="true">
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
 
-<div class="container top-buffer">
+<div class="container-fluid top-buffer">
 <h4>Map Volume to Host</h4>
 <form method="POST" action="/map_volume_to_host">
-  <div class="form-group">
-    <label>Volume:</label>
-    <input type="text" name="volume_name" placeholder="Enter Volume Name" required="true">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Volume:</label>
+    <div class="col-sm-10">
+    <input class="form-control" type="text" name="volume_name" placeholder="Enter Volume Name" required="true">
+    </div>
   </div>
-  <div class="form-group">
-    <label>Host:</label>
-    <input type="text" name="host_name" placeholder="Enter Host Name" required="true">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Host:</label>
+    <div class="col-sm-10">
+    <input class="form-control" type="text" name="host_name" placeholder="Enter Host Name" required="true">
+    </div>
   </div>
-  <div class="form-group">
-    <label>Unique Target:</label>
-    <select class="form-control-inline" name="unique_target">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Unique Target:</label>
+    <div class="col-sm-10">
+    <select class="form-control" name="unique_target">
             <option>True</option>
             <option>False</option>
     </select>
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

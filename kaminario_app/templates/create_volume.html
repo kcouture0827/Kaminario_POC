@@ -1,14 +1,13 @@
 {% extends "bootstrap/base.html" %}
 
 {% block content %}
-
 <div class="alert alert-success text-center">
     <h4>The volume "{{volume_name}}" has been created with a size of {{volume_size_gb}}GB and is aligned to the "{{volume_group}}" volume group</h4>
 </div>
-<br>
-<h4>create volume request:</h4>
-<p>{{request_command}}</p><br>
-<h4>assumed successful json response:</h4>
-<p>{{assumed_successful_json_response}}</p><br><br>
-
+<div class="container-fluid top-buffer">
+    <h4>create volume request:</h4>
+    <p>{{request_command}}</p><br>
+    <h4>assumed successful json response:</h4>
+    <p>{{assumed_successful_json_response}}</p><br><br>
+</div>
 {% endblock %}
