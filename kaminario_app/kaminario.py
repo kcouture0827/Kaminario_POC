@@ -309,12 +309,12 @@ def map_volume_to_host():
                  }},
                  "id": 1,
                  "lun": 2,
-                 "unique_target": true,
+                 "unique_target": {unique_target_bool},
                  "volume": {{
                  "ref": "/volumes/{volume_id}"
                  }}
                  }}               
-        '''.format(host_id=host_id, volume_id=volume_id)
+        '''.format(host_id=host_id, volume_id=volume_id, unique_target_bool=unique_target_bool)
 
         return render_template('map_volume_to_host.html', volume_name=volume_name, host_name=host_name, volume_get_request=volume_get_request, volume_assumed_json_response=volume_assumed_json_response, host_get_request=host_get_request, host_assumed_json_response=host_assumed_json_response, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)
 
