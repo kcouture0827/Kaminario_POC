@@ -17,9 +17,11 @@ def index():
 def create_volume_group():
     if request.method == 'POST':
         volume_group_name = request.form['volume_group_name']
-        api_url = "https://k2_ip/api/v2/volume_groups"
+        api_url = "k2_ip/api/v2/volume_groups"
         payload = {'name': volume_group_name}
-        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin')))"
+        request_command = "requests.post(https://" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin')))"
+        curl_command = "curl -s 'https://admin:admin@" + api_url + "' -X POST -H 'Content-type: application/json' -d '" + str(payload) + "'"
+        print(curl_command)
         assumed_successful_json_response = '''
         {{
              "capacity_policy": null,
@@ -50,7 +52,7 @@ def create_volume_group():
         }}
         '''.format(volume_group_name=volume_group_name)
 
-        return render_template('create_volume_group.html', volume_group_name=volume_group_name, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)
+        return render_template('create_volume_group.html', volume_group_name=volume_group_name, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response, curl_command=curl_command)
 
 
 @app.route('/create_volume', methods=['POST'])
@@ -98,9 +100,10 @@ def create_volume():
         elif vmware_enabled == "False":
             vmware_enabled_bool = False
         description = request.form['volume_description']
-        api_url = "https://k2_ip/api/v2/volumes"
+        api_url = "k2_ip/api/v2/volumes"
         payload = {'name': volume_name, 'size': volume_size_kb, 'volume_group': { "ref": "/volume_groups/" + volume_group_id }, 'vmware_enabled': vmware_enabled, 'description': description}
-        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin')))"
+        request_command = "requests.post(https://" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin')))"
+        curl_command = "curl -s 'https://admin:admin@" + api_url + "' -X POST -H 'Content-type: application/json' -d '" + str(payload) + "'"
         assumed_successful_json_response = '''
         {{
              "hits": [
@@ -140,7 +143,7 @@ def create_volume():
         }}
         '''.format(volume_name=volume_name, volume_size_kb=volume_size_kb, volume_group_id=volume_group_id, vmware_enabled_bool=vmware_enabled_bool)
 
-        return render_template('create_volume.html', volume_name=volume_name, volume_size_gb=volume_size_gb, volume_group=volume_group, request_command=request_command, volume_group_get_request=volume_group_get_request, volume_group_assumed_json_response=volume_group_assumed_json_response, assumed_successful_json_response=assumed_successful_json_response)
+        return render_template('create_volume.html', volume_name=volume_name, volume_size_gb=volume_size_gb, volume_group=volume_group, request_command=request_command, volume_group_get_request=volume_group_get_request, volume_group_assumed_json_response=volume_group_assumed_json_response, assumed_successful_json_response=assumed_successful_json_response, curl_command=curl_command)
 
 
 @app.route('/create_host_group', methods=['POST'])
@@ -154,9 +157,10 @@ def create_host_group():
             allow_different_host_types_bool = True
         elif allow_different_host_types == "False":
             allow_different_host_types_bool = False
-        api_url = "https://k2_ip/api/v2/host_groups"
+        api_url = "k2_ip/api/v2/host_groups"
         payload = {'name': host_group_name, 'connectivity_type': connectivity_type, 'description': host_group_description, 'allow_different_host_types': allow_different_host_types_bool}
-        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
+        request_command = "requests.post(https://" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
+        curl_command = "curl -s 'https://admin:admin@" + api_url + "' -X POST -H 'Content-type: application/json' -d '" + str(payload) + "'"
         assumed_successful_json_response = '''
         {{
             "hits": [
@@ -172,7 +176,7 @@ def create_host_group():
          }}               
         '''.format(host_group_name=host_group_name, host_group_description=host_group_description, allow_different_host_types_bool=allow_different_host_types_bool, connectivity_type=connectivity_type)
 
-        return render_template('create_host_group.html', host_group_name=host_group_name, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)
+        return render_template('create_host_group.html', host_group_name=host_group_name, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response, curl_command=curl_command)
 
 
 @app.route('/create_host', methods=['POST'])
@@ -198,7 +202,7 @@ def create_host():
         '''.format(host_group=host_group)
         host_group_data = json.loads(host_group_assumed_json_response)
         host_group_id = str(host_group_data['hits'][0]['id'])
-        api_url = "https://k2_ip/api/v2/hosts"
+        api_url = "k2_ip/api/v2/hosts"
         if host_group == "":
             host_group_get_request = ""
             payload = {'name': host_name, 'type': host_type}
@@ -228,19 +232,20 @@ def create_host():
                     "volumes_count": 10
                     }}
                     '''.format(host_type=host_type, host_name=host_name)
-        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
+        request_command = "requests.post(https://" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
+        curl_command = "curl -s 'https://admin:admin@" + api_url + "' -X POST -H 'Content-type: application/json' -d '" + str(payload) + "'"
 
 
-        return render_template('create_host.html', host_name=host_name, host_type=host_type, host_group=host_group, host_group_get_request=host_group_get_request, host_group_assumed_json_response=host_group_assumed_json_response, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)
+        return render_template('create_host.html', host_name=host_name, host_type=host_type, host_group=host_group, host_group_get_request=host_group_get_request, host_group_assumed_json_response=host_group_assumed_json_response, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response, curl_command=curl_command)
 
 
 @app.route('/fc_pwwn_lookup', methods=['POST'])
 def fc_pwwn_lookup():
     if request.method == 'POST':
         pwwn = request.form['pwwn']
-        api_url = "https://k2_ip/api/v2/host_fc_ports?pwwn=" + pwwn
-        payload = {'pwwn': pwwn}
-        request_command = "requests.get(" + api_url + ", auth=('admin', 'admin'))"
+        api_url = "k2_ip/api/v2/host_fc_ports?pwwn=" + pwwn
+        request_command = "requests.get(https://" + api_url + ", auth=('admin', 'admin'))"
+        curl_command = "curl -s 'https://admin:admin@" + api_url
         assumed_successful_json_response = '''
         {{
             "hits": [
@@ -253,7 +258,7 @@ def fc_pwwn_lookup():
         }}
         '''.format(pwwn=pwwn)
 
-        return render_template('fc_pwwn_lookup.html', pwwn=pwwn, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)
+        return render_template('fc_pwwn_lookup.html', pwwn=pwwn, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response, curl_command=curl_command)
 
 
 @app.route('/fc_pwwn_host_modify', methods=['POST'])
@@ -291,9 +296,10 @@ def fc_pwwn_host_modify():
         '''.format(associated_host=associated_host)
         associated_host_data = json.loads(associated_host_assumed_json_response)
         associated_host_id = str(associated_host_data['id'])
-        api_url = "https://k2_ip/api/v2/host_fc_ports/" + pwwn_id
+        api_url = "k2_ip/api/v2/host_fc_ports/" + pwwn_id
         payload = {'host': {"ref": "/hosts/" + associated_host_id}}
-        request_command = "requests.patch(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
+        request_command = "requests.patch(https://" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
+        curl_command = "curl -s 'https://admin:admin@" + api_url + "' --request PATCH -H 'Content-type: application/json' -d '" + str(payload) + "'"
         assumed_successful_json_response = '''
         {{
             "hits": [
@@ -306,7 +312,7 @@ def fc_pwwn_host_modify():
         }}
         '''.format(pwwn=pwwn, associated_host=associated_host)
 
-        return render_template('fc_pwwn_host_modify.html', pwwn=pwwn, pwwn_get_request=pwwn_get_request, pwwn_assumed_json_response=pwwn_assumed_json_response, pwwn_id=pwwn_id, associated_host=associated_host, associated_host_get_request=associated_host_get_request, associated_host_assumed_json_response=associated_host_assumed_json_response, associated_host_id=associated_host_id, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)
+        return render_template('fc_pwwn_host_modify.html', pwwn=pwwn, pwwn_get_request=pwwn_get_request, pwwn_assumed_json_response=pwwn_assumed_json_response, pwwn_id=pwwn_id, associated_host=associated_host, associated_host_get_request=associated_host_get_request, associated_host_assumed_json_response=associated_host_assumed_json_response, associated_host_id=associated_host_id, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response, curl_command=curl_command)
 
 
 @app.route('/map_volume_to_host', methods=['POST'])
@@ -368,9 +374,10 @@ def map_volume_to_host():
             unique_target_bool = True
         elif unique_target == "False":
             unique_target_bool = False
-        api_url = "https://k2_ip/api/v2/mappings"
+        api_url = "k2_ip/api/v2/mappings"
         payload = {"host": {"ref": "/hosts/" + host_id}, "volume": {"ref": "/volumes/" + volume_id}, "unique_target": unique_target_bool}
-        request_command = "requests.post(" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
+        request_command = "requests.post(https://" + api_url + ", json=" + str(payload) + ", auth=('admin', 'admin'))"
+        curl_command = "curl -s 'https://admin:admin@" + api_url + "' -X POST -H 'Content-type: application/json' -d '" + str(payload) + "'"
         assumed_successful_json_response = '''
         {{
             "host": {{
@@ -385,7 +392,7 @@ def map_volume_to_host():
         }}               
         '''.format(host_id=host_id, volume_id=volume_id, unique_target_bool=unique_target_bool)
 
-        return render_template('map_volume_to_host.html', volume_name=volume_name, host_name=host_name, volume_get_request=volume_get_request, volume_assumed_json_response=volume_assumed_json_response, host_get_request=host_get_request, host_assumed_json_response=host_assumed_json_response, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response)
+        return render_template('map_volume_to_host.html', volume_name=volume_name, host_name=host_name, volume_get_request=volume_get_request, volume_assumed_json_response=volume_assumed_json_response, host_get_request=host_get_request, host_assumed_json_response=host_assumed_json_response, request_command=request_command, assumed_successful_json_response=assumed_successful_json_response, curl_command=curl_command)
 
 
 if __name__ == "__main__":
